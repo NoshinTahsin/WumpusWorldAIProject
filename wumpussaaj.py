@@ -20,37 +20,40 @@ rowDimension = 4
 
 board = [[cellState() for j in range(colDimension)] for i in range(rowDimension)]
 
-def boundCheck(c,r):
+def boundCheck(r,c):
     if(c>=0 and r>=0 and c<colDimension and r<rowDimension):
         return True
 
-def addBreeze(c,r):
-    if(boundCheck(c,r)):
-        board[c][r].breeze=True
+def addBreeze(r,c):
+    if(boundCheck(r,c)):
+        board[r][c].breeze=True
 
-def addStench(c,r):
-    if(boundCheck(c,r)):
-        board[c][r].stench=True
+def addStench(r,c):
+    if(boundCheck(r,c)):
+        board[r][c].stench=True
 
-def addGold(c,r):
-    if(boundCheck(c,r)):
-        board[c][r].gold=True
+def addGold(r,c):
+    print("ashchiiii")
+    if(boundCheck(r,c)):
+        board[r][c].gold=True
+        board[r][c].glitter=True
+        #print("*************"+ str(c)+ "     "+str(r))
 
-def addPit(c,r):
-    if(boundCheck(c,r)):
-        board[c][r].pit=True
-        addBreeze(c,r+1)
-        addBreeze(c,r-1)
-        addBreeze(c+1,r)
-        addBreeze(c-1,r)
+def addPit(r,c):
+    if(boundCheck(r,c)):
+        board[r][c].pit=True
+        addBreeze(r+1,c)
+        addBreeze(r-1,c)
+        addBreeze(r,c+1)
+        addBreeze(r,c-1)
 
-def addWumpus(c,r):
-    if(boundCheck(c,r)):
-        board[c][r].wumpus=True
-        addStench(c,r+1)
-        addStench(c,r-1)
-        addStench(c+1,r)
-        addStench(c-1,r)
+def addWumpus(r,c):
+    if(boundCheck(r,c)):
+        board[r][c].wumpus=True
+        addStench(r+1,c)
+        addStench(r-1,c)
+        addStench(r,c+1)
+        addStench(r,c-1)
 
 def printBoard():
 
@@ -67,26 +70,26 @@ def printBoard():
                 cellInfo+=" agent "
 
 
-            if board[c][r].stench:
-                cellInfo+="stench"
+            if board[r][c].stench:
+                cellInfo+=" stench"
 
-            elif board[c][r].wumpus:
-                cellInfo+="wumpus"
+            if board[r][c].wumpus:
+                cellInfo+=" wumpus"
 
-            elif board[c][r].pit:
-                cellInfo+="pit"
+            if board[r][c].pit:
+                cellInfo+=" pit"
 
-            elif board[c][r].breeze:
-                cellInfo+="breeze"
+            if board[r][c].breeze:
+                cellInfo+=" breeze"
 
-            elif board[c][r].gold:
-                cellInfo+="gold"
+            if board[r][c].gold:
+                cellInfo+=" gold"
 
-            elif board[c][r].glitter:
-                cellInfo+="glitter"
+            if board[r][c].glitter:
+                cellInfo+=" glitter"
 
-            else:
-                cellInfo+="empty"
+            #else:
+            #cellInfo+="empty"
 
         print(cellInfo)
 
@@ -95,13 +98,33 @@ def printBoard():
 
 
 
+def generateDefinedBoard():
+    pitList=[[0,2], [0,3], [1,0], [3,0]]
+    wumpusList=[3,2]
+    goldList=[3,2]
 
-def addFeatures ( ):
+    for p in range (len(pitList)):
+        pitRow=pitList[p][0]
+        pitCol=pitList[p][1]
+        addPit(pitRow, pitCol)
+
+    wumpusRow=wumpusList[0]
+    wumpusCol=wumpusList[1]
+    addWumpus(wumpusRow, wumpusCol)
+
+    goldRow=goldList[0]
+    goldCol=goldList[1]
+    addGold(goldRow, goldCol)
+
+
+
+
+def addFeaturesRandomly ( ):
         # Generate pits
         for r in range (rowDimension):
             for c in range (colDimension):
                 if (c != 0 or r != 0) and random.randrange(10) < 3: #etaaaaaaki
-                    addPit ( c, r )
+                    addPit ( r, c )
 
         # Generate wumpus
         wummpusC = 0
@@ -111,7 +134,7 @@ def addFeatures ( ):
             wummpusC = random.randrange(colDimension)
             wumpusR = random.randrange(rowDimension)
 
-        addWumpus ( wummpusC, wumpusR );
+        addWumpus ( wummpusR, wumpusc );
 
         # Generate gold
         goldC = 0
@@ -121,7 +144,8 @@ def addFeatures ( ):
             goldC = random.randrange(colDimension)
             goldR = random.randrange(rowDimension)
 
-        addGold ( goldC, goldR )
+
+        addGold ( goldR, goldC )
 
 
 def main():
@@ -130,22 +154,21 @@ def main():
     board = [[cellState() for j in range(colDimension)] for i in range(rowDimension)]
     #addFeatures()
 
-    #print("Want to play in a random world or predefined world?")
-    #inp=input("Enter 1 for random world, 2 for predefined world")
-    #print(input)
+    print("Want to play in a random world or predefined world?")
+    inp=input("Enter 1 for random world, 2 for predefined world")
+    print(inp)
 
-    #if(inp==1):
-        #generateRandomBoard
-        #printBoard
+    inp=int(inp)
 
-    print("Showing board for random world")
-    print("\n")
-    addFeatures()
-    printBoard()
+    if inp==1:
+        print("Showing board for random world")
+        print("\n")
+        addFeaturesRandomly()
+        printBoard()
 
-    #if(inp==2):
-        #generateDefinedBoard
-        #printBoard
+    if(inp==2):
+        generateDefinedBoard()
+        printBoard()
 
 
 main()
