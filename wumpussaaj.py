@@ -393,6 +393,7 @@ def startGame():
 
            # enterCell(adjCellR, adjCellC)
 
+    breakKori=0
 
     while queue:
 
@@ -403,7 +404,7 @@ def startGame():
             returnFromCell=enterCell(s[0],s[1])
             if returnFromCell==-1:
                 break
-            print("break works?")
+            #print("break works?")
             # Get all adjacent vertices of the
             # dequeued vertex s. If a adjacent
             # has not been visited, then mark it
@@ -422,10 +423,13 @@ def startGame():
                     returnFromCell=enterCell(adjCellR, adjCellC)
 
                     if returnFromCell==-1:
+                        breakKori=1
                         break
 
                     print("break works?")
 
+            if breakKori==1:
+                 break
 
 
 
