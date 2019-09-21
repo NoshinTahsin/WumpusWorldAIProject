@@ -379,8 +379,6 @@ def startGame():
     # visited and enqueue it
     queue.append([0,0])
 
-
-
   #  while 1:
 
    #     print("You can go to cells ")
@@ -405,7 +403,7 @@ def startGame():
             returnFromCell=enterCell(s[0],s[1])
             if returnFromCell==-1:
                 break
-
+            print("break works?")
             # Get all adjacent vertices of the
             # dequeued vertex s. If a adjacent
             # has not been visited, then mark it
@@ -425,6 +423,8 @@ def startGame():
 
                     if returnFromCell==-1:
                         break
+
+                    print("break works?")
 
 
 
