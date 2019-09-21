@@ -1,0 +1,608 @@
+Game started
+[0, 0] Agent is in cell: 0 , 0
+You can go to cells 
+[[0, 1], [1, 0]]
+Agent is in cell: 0 , 1
+Breeze found in cell, pit around
+Agent is in cell: 1 , 0
+Breeze found in cell, pit around
+[0, 1] Agent is in cell: 0 , 1
+Breeze found in cell, pit around
+You can go to cells 
+[[0, 2], [0, 0], [1, 1]]
+Agent is in cell: 0 , 2
+Agent is in cell: 1 , 1
+You fell into a pit
+[1, 0] Agent is in cell: 1 , 0
+Breeze found in cell, pit around
+You can go to cells 
+[[1, 1], [1, -1], [0, 0], [2, 0]]
+Agent is in cell: 1 , -1
+Breeze found in cell, pit around
+Agent is in cell: 2 , 0
+[0, 2] Agent is in cell: 0 , 2
+You can go to cells 
+[[0, 3], [0, 1], [1, 2]]
+Agent is in cell: 0 , 3
+Agent is in cell: 1 , 2
+Breeze found in cell, pit around
+[1, 1] Agent is in cell: 1 , 1
+You fell into a pit
+You can go to cells 
+[[1, 2], [1, 0], [0, 1], [2, 1]]
+Agent is in cell: 2 , 1
+Stench found in cell, wumpus around
+Breeze found in cell, pit around
+[1, -1] Agent is in cell: 1 , -1
+Breeze found in cell, pit around
+You can go to cells 
+[[1, 0], [1, -2], [0, -1], [2, -1]]
+Agent is in cell: 1 , -2
+Breeze found in cell, pit around
+Agent is in cell: 0 , -1
+Breeze found in cell, pit around
+Agent is in cell: 2 , -1
+You fell into a pit
+Breeze found in cell, pit around
+[2, 0] Agent is in cell: 2 , 0
+You can go to cells 
+[[2, 1], [2, -1], [1, 0], [3, 0]]
+Agent is in cell: 3 , 0
+Stench found in cell, wumpus around
+[0, 3] Agent is in cell: 0 , 3
+You can go to cells 
+[[0, 4], [0, 2], [1, 3]]
+Agent is in cell: 0 , 4
+Agent is in cell: 1 , 3
+[1, 2] Agent is in cell: 1 , 2
+Breeze found in cell, pit around
+You can go to cells 
+[[1, 3], [1, 1], [0, 2], [2, 2]]
+Agent is in cell: 2 , 2
+[2, 1] Agent is in cell: 2 , 1
+Stench found in cell, wumpus around
+Breeze found in cell, pit around
+You can go to cells 
+[[2, 2], [2, 0], [1, 1], [3, 1]]
+Agent is in cell: 3 , 1
+Wumpus Eats You! You lose! Game Over!!!
+[1, -2] Agent is in cell: 1 , -2
+Breeze found in cell, pit around
+You can go to cells 
+[[1, -1], [1, -3], [0, -2], [2, -2]]
+Agent is in cell: 1 , -3
+Breeze found in cell, pit around
+Agent is in cell: 0 , -2
+You fell into a pit
+Breeze found in cell, pit around
+Agent is in cell: 2 , -2
+Breeze found in cell, pit around
+[0, -1] Agent is in cell: 0 , -1
+Breeze found in cell, pit around
+You can go to cells 
+[[0, 0], [0, -2], [1, -1]]
+[2, -1] Agent is in cell: 2 , -1
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[2, 0], [2, -2], [1, -1], [3, -1]]
+Agent is in cell: 3 , -1
+You fell into a pit
+Breeze found in cell, pit around
+[3, 0] Agent is in cell: 3 , 0
+Stench found in cell, wumpus around
+You can go to cells 
+[[3, 1], [3, -1], [2, 0], [4, 0]]
+Agent is in cell: 4 , 0
+[0, 4] Agent is in cell: 0 , 4
+You can go to cells 
+[[0, 5], [0, 3], [1, 4]]
+Agent is in cell: 0 , 5
+Breeze found in cell, pit around
+Agent is in cell: 1 , 4
+[1, 3] Agent is in cell: 1 , 3
+You can go to cells 
+[[1, 4], [1, 2], [0, 3], [2, 3]]
+Agent is in cell: 2 , 3
+[2, 2] Agent is in cell: 2 , 2
+You can go to cells 
+[[2, 3], [2, 1], [1, 2], [3, 2]]
+Agent is in cell: 3 , 2
+Stench found in cell, wumpus around
+Breeze found in cell, pit around
+[3, 1] Agent is in cell: 3 , 1
+Wumpus Eats You! You lose! Game Over!!!
+You can go to cells 
+[[3, 2], [3, 0], [2, 1], [4, 1]]
+Agent is in cell: 4 , 1
+Stench found in cell, wumpus around
+Breeze found in cell, pit around
+[1, -3] Agent is in cell: 1 , -3
+Breeze found in cell, pit around
+You can go to cells 
+[[1, -2], [1, -4], [0, -3], [2, -3]]
+Agent is in cell: 1 , -4
+You fell into a pit
+Breeze found in cell, pit around
+Agent is in cell: 0 , -3
+You fell into a pit
+Breeze found in cell, pit around
+Agent is in cell: 2 , -3
+[0, -2] Agent is in cell: 0 , -2
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[0, -1], [0, -3], [1, -2]]
+[2, -2] Agent is in cell: 2 , -2
+Breeze found in cell, pit around
+You can go to cells 
+[[2, -1], [2, -3], [1, -2], [3, -2]]
+Agent is in cell: 3 , -2
+Breeze found in cell, pit around
+[3, -1] Agent is in cell: 3 , -1
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[3, 0], [3, -2], [2, -1], [4, -1]]
+Agent is in cell: 4 , -1
+Breeze found in cell, pit around
+[4, 0] Agent is in cell: 4 , 0
+You can go to cells 
+[[4, 1], [4, -1], [3, 0], [5, 0]]
+Agent is in cell: 5 , 0
+Breeze found in cell, pit around
+Gold collected! Game won!
+[0, 5] Agent is in cell: 0 , 5
+Breeze found in cell, pit around
+You can go to cells 
+[[0, 6], [0, 4], [1, 5]]
+Agent is in cell: 0 , 6
+You fell into a pit
+Breeze found in cell, pit around
+Agent is in cell: 1 , 5
+Breeze found in cell, pit around
+[1, 4] Agent is in cell: 1 , 4
+You can go to cells 
+[[1, 5], [1, 3], [0, 4], [2, 4]]
+Agent is in cell: 2 , 4
+[2, 3] Agent is in cell: 2 , 3
+You can go to cells 
+[[2, 4], [2, 2], [1, 3], [3, 3]]
+Agent is in cell: 3 , 3
+[3, 2] Agent is in cell: 3 , 2
+Stench found in cell, wumpus around
+Breeze found in cell, pit around
+You can go to cells 
+[[3, 3], [3, 1], [2, 2], [4, 2]]
+Agent is in cell: 4 , 2
+You fell into a pit
+[4, 1] Agent is in cell: 4 , 1
+Stench found in cell, wumpus around
+Breeze found in cell, pit around
+You can go to cells 
+[[4, 2], [4, 0], [3, 1], [5, 1]]
+Agent is in cell: 5 , 1
+You fell into a pit
+Breeze found in cell, pit around
+[1, -4] Agent is in cell: 1 , -4
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[1, -3], [1, -5], [0, -4], [2, -4]]
+Agent is in cell: 2 , -4
+Breeze found in cell, pit around
+[0, -3] Agent is in cell: 0 , -3
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[0, -2], [0, -4], [1, -3]]
+[2, -3] Agent is in cell: 2 , -3
+You can go to cells 
+[[2, -2], [2, -4], [1, -3], [3, -3]]
+Agent is in cell: 3 , -3
+[3, -2] Agent is in cell: 3 , -2
+Breeze found in cell, pit around
+You can go to cells 
+[[3, -1], [3, -3], [2, -2], [4, -2]]
+Agent is in cell: 4 , -2
+[4, -1] Agent is in cell: 4 , -1
+Breeze found in cell, pit around
+You can go to cells 
+[[4, 0], [4, -2], [3, -1], [5, -1]]
+Agent is in cell: 5 , -1
+You fell into a pit
+[5, 0] Agent is in cell: 5 , 0
+Breeze found in cell, pit around
+Gold collected! Game won!
+You can go to cells 
+[[5, 1], [5, -1], [4, 0], [6, 0]]
+Agent is in cell: 6 , 0
+Breeze found in cell, pit around
+[0, 6] Agent is in cell: 0 , 6
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[0, 7], [0, 5], [1, 6]]
+[1, 5] Agent is in cell: 1 , 5
+Breeze found in cell, pit around
+You can go to cells 
+[[1, 6], [1, 4], [0, 5], [2, 5]]
+Agent is in cell: 2 , 5
+Breeze found in cell, pit around
+[2, 4] Agent is in cell: 2 , 4
+You can go to cells 
+[[2, 5], [2, 3], [1, 4], [3, 4]]
+Agent is in cell: 3 , 4
+Breeze found in cell, pit around
+[3, 3] Agent is in cell: 3 , 3
+You can go to cells 
+[[3, 4], [3, 2], [2, 3], [4, 3]]
+Agent is in cell: 4 , 3
+Breeze found in cell, pit around
+[4, 2] Agent is in cell: 4 , 2
+You fell into a pit
+You can go to cells 
+[[4, 3], [4, 1], [3, 2], [5, 2]]
+Agent is in cell: 5 , 2
+Breeze found in cell, pit around
+[5, 1] Agent is in cell: 5 , 1
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[5, 2], [5, 0], [4, 1], [6, 1]]
+Agent is in cell: 6 , 1
+You fell into a pit
+Breeze found in cell, pit around
+[2, -4] Agent is in cell: 2 , -4
+Breeze found in cell, pit around
+You can go to cells 
+[[2, -3], [2, -5], [1, -4], [3, -4]]
+Agent is in cell: 3 , -4
+Breeze found in cell, pit around
+[3, -3] Agent is in cell: 3 , -3
+You can go to cells 
+[[3, -2], [3, -4], [2, -3], [4, -3]]
+Agent is in cell: 4 , -3
+Breeze found in cell, pit around
+[4, -2] Agent is in cell: 4 , -2
+You can go to cells 
+[[4, -1], [4, -3], [3, -2], [5, -2]]
+Agent is in cell: 5 , -2
+Breeze found in cell, pit around
+[5, -1] Agent is in cell: 5 , -1
+You fell into a pit
+You can go to cells 
+[[5, 0], [5, -2], [4, -1], [6, -1]]
+Agent is in cell: 6 , -1
+Breeze found in cell, pit around
+[6, 0] Agent is in cell: 6 , 0
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 1], [6, -1], [5, 0], [7, 0]]
+Agent is in cell: 7 , 0
+[2, 5] Agent is in cell: 2 , 5
+Breeze found in cell, pit around
+You can go to cells 
+[[2, 6], [2, 4], [1, 5], [3, 5]]
+Agent is in cell: 3 , 5
+You fell into a pit
+[3, 4] Agent is in cell: 3 , 4
+Breeze found in cell, pit around
+You can go to cells 
+[[3, 5], [3, 3], [2, 4], [4, 4]]
+Agent is in cell: 4 , 4
+You fell into a pit
+[4, 3] Agent is in cell: 4 , 3
+Breeze found in cell, pit around
+You can go to cells 
+[[4, 4], [4, 2], [3, 3], [5, 3]]
+Agent is in cell: 5 , 3
+[5, 2] Agent is in cell: 5 , 2
+Breeze found in cell, pit around
+You can go to cells 
+[[5, 3], [5, 1], [4, 2], [6, 2]]
+Agent is in cell: 6 , 2
+You fell into a pit
+Breeze found in cell, pit around
+[6, 1] Agent is in cell: 6 , 1
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 2], [6, 0], [5, 1], [7, 1]]
+Agent is in cell: 7 , 1
+Breeze found in cell, pit around
+[3, -4] Agent is in cell: 3 , -4
+Breeze found in cell, pit around
+You can go to cells 
+[[3, -3], [3, -5], [2, -4], [4, -4]]
+Agent is in cell: 4 , -4
+Breeze found in cell, pit around
+[4, -3] Agent is in cell: 4 , -3
+Breeze found in cell, pit around
+You can go to cells 
+[[4, -2], [4, -4], [3, -3], [5, -3]]
+Agent is in cell: 5 , -3
+You fell into a pit
+Breeze found in cell, pit around
+[5, -2] Agent is in cell: 5 , -2
+Breeze found in cell, pit around
+You can go to cells 
+[[5, -1], [5, -3], [4, -2], [6, -2]]
+Agent is in cell: 6 , -2
+Breeze found in cell, pit around
+[6, -1] Agent is in cell: 6 , -1
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 0], [6, -2], [5, -1], [7, -1]]
+Agent is in cell: 7 , -1
+You fell into a pit
+[7, 0] Agent is in cell: 7 , 0
+You can go to cells 
+[[7, 1], [7, -1], [6, 0], [8, 0]]
+Agent is in cell: 8 , 0
+Breeze found in cell, pit around
+[3, 5] Agent is in cell: 3 , 5
+You fell into a pit
+You can go to cells 
+[[3, 6], [3, 4], [2, 5], [4, 5]]
+Agent is in cell: 4 , 5
+Breeze found in cell, pit around
+[4, 4] Agent is in cell: 4 , 4
+You fell into a pit
+You can go to cells 
+[[4, 5], [4, 3], [3, 4], [5, 4]]
+Agent is in cell: 5 , 4
+Breeze found in cell, pit around
+[5, 3] Agent is in cell: 5 , 3
+You can go to cells 
+[[5, 4], [5, 2], [4, 3], [6, 3]]
+Agent is in cell: 6 , 3
+Breeze found in cell, pit around
+[6, 2] Agent is in cell: 6 , 2
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 3], [6, 1], [5, 2], [7, 2]]
+Agent is in cell: 7 , 2
+You fell into a pit
+Breeze found in cell, pit around
+[7, 1] Agent is in cell: 7 , 1
+Breeze found in cell, pit around
+You can go to cells 
+[[7, 2], [7, 0], [6, 1], [8, 1]]
+Agent is in cell: 8 , 1
+Breeze found in cell, pit around
+[4, -4] Agent is in cell: 4 , -4
+Breeze found in cell, pit around
+You can go to cells 
+[[4, -3], [4, -5], [3, -4], [5, -4]]
+Agent is in cell: 5 , -4
+You fell into a pit
+Breeze found in cell, pit around
+[5, -3] Agent is in cell: 5 , -3
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[5, -2], [5, -4], [4, -3], [6, -3]]
+Agent is in cell: 6 , -3
+You fell into a pit
+Breeze found in cell, pit around
+[6, -2] Agent is in cell: 6 , -2
+Breeze found in cell, pit around
+You can go to cells 
+[[6, -1], [6, -3], [5, -2], [7, -2]]
+Agent is in cell: 7 , -2
+Breeze found in cell, pit around
+[7, -1] Agent is in cell: 7 , -1
+You fell into a pit
+You can go to cells 
+[[7, 0], [7, -2], [6, -1], [8, -1]]
+Agent is in cell: 8 , -1
+Breeze found in cell, pit around
+[8, 0] Agent is in cell: 8 , 0
+Breeze found in cell, pit around
+You can go to cells 
+[[8, 1], [8, -1], [7, 0], [9, 0]]
+Agent is in cell: 9 , 0
+You fell into a pit
+Breeze found in cell, pit around
+[4, 5] Agent is in cell: 4 , 5
+Breeze found in cell, pit around
+You can go to cells 
+[[4, 6], [4, 4], [3, 5], [5, 5]]
+Agent is in cell: 5 , 5
+You fell into a pit
+Breeze found in cell, pit around
+[5, 4] Agent is in cell: 5 , 4
+Breeze found in cell, pit around
+You can go to cells 
+[[5, 5], [5, 3], [4, 4], [6, 4]]
+Agent is in cell: 6 , 4
+Breeze found in cell, pit around
+[6, 3] Agent is in cell: 6 , 3
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 4], [6, 2], [5, 3], [7, 3]]
+Agent is in cell: 7 , 3
+Breeze found in cell, pit around
+[7, 2] Agent is in cell: 7 , 2
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[7, 3], [7, 1], [6, 2], [8, 2]]
+Agent is in cell: 8 , 2
+Breeze found in cell, pit around
+[8, 1] Agent is in cell: 8 , 1
+Breeze found in cell, pit around
+You can go to cells 
+[[8, 2], [8, 0], [7, 1], [9, 1]]
+Agent is in cell: 9 , 1
+You fell into a pit
+Breeze found in cell, pit around
+[5, -4] Agent is in cell: 5 , -4
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[5, -3], [5, -5], [4, -4], [6, -4]]
+Agent is in cell: 6 , -4
+Breeze found in cell, pit around
+[6, -3] Agent is in cell: 6 , -3
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[6, -2], [6, -4], [5, -3], [7, -3]]
+Agent is in cell: 7 , -3
+Breeze found in cell, pit around
+[7, -2] Agent is in cell: 7 , -2
+Breeze found in cell, pit around
+You can go to cells 
+[[7, -1], [7, -3], [6, -2], [8, -2]]
+Agent is in cell: 8 , -2
+[8, -1] Agent is in cell: 8 , -1
+Breeze found in cell, pit around
+You can go to cells 
+[[8, 0], [8, -2], [7, -1], [9, -1]]
+Agent is in cell: 9 , -1
+[9, 0] Agent is in cell: 9 , 0
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[9, 1], [8, 0]]
+[5, 5] Agent is in cell: 5 , 5
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[5, 6], [5, 4], [4, 5], [6, 5]]
+Agent is in cell: 6 , 5
+You fell into a pit
+Breeze found in cell, pit around
+[6, 4] Agent is in cell: 6 , 4
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 5], [6, 3], [5, 4], [7, 4]]
+Agent is in cell: 7 , 4
+[7, 3] Agent is in cell: 7 , 3
+Breeze found in cell, pit around
+You can go to cells 
+[[7, 4], [7, 2], [6, 3], [8, 3]]
+Agent is in cell: 8 , 3
+[8, 2] Agent is in cell: 8 , 2
+Breeze found in cell, pit around
+You can go to cells 
+[[8, 3], [8, 1], [7, 2], [9, 2]]
+Agent is in cell: 9 , 2
+Breeze found in cell, pit around
+[9, 1] Agent is in cell: 9 , 1
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[9, 2], [9, 0], [8, 1]]
+[6, -4] Agent is in cell: 6 , -4
+Breeze found in cell, pit around
+You can go to cells 
+[[6, -3], [6, -5], [5, -4], [7, -4]]
+Agent is in cell: 7 , -4
+Breeze found in cell, pit around
+[7, -3] Agent is in cell: 7 , -3
+Breeze found in cell, pit around
+You can go to cells 
+[[7, -2], [7, -4], [6, -3], [8, -3]]
+Agent is in cell: 8 , -3
+Breeze found in cell, pit around
+[8, -2] Agent is in cell: 8 , -2
+You can go to cells 
+[[8, -1], [8, -3], [7, -2], [9, -2]]
+Agent is in cell: 9 , -2
+[9, -1] Agent is in cell: 9 , -1
+You can go to cells 
+[[9, 0], [9, -2], [8, -1]]
+[6, 5] Agent is in cell: 6 , 5
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[6, 6], [6, 4], [5, 5], [7, 5]]
+Agent is in cell: 7 , 5
+Breeze found in cell, pit around
+[7, 4] Agent is in cell: 7 , 4
+You can go to cells 
+[[7, 5], [7, 3], [6, 4], [8, 4]]
+Agent is in cell: 8 , 4
+Breeze found in cell, pit around
+[8, 3] Agent is in cell: 8 , 3
+You can go to cells 
+[[8, 4], [8, 2], [7, 3], [9, 3]]
+Agent is in cell: 9 , 3
+Breeze found in cell, pit around
+[9, 2] Agent is in cell: 9 , 2
+Breeze found in cell, pit around
+You can go to cells 
+[[9, 3], [9, 1], [8, 2]]
+[7, -4] Agent is in cell: 7 , -4
+Breeze found in cell, pit around
+You can go to cells 
+[[7, -3], [7, -5], [6, -4], [8, -4]]
+Agent is in cell: 8 , -4
+You fell into a pit
+Breeze found in cell, pit around
+[8, -3] Agent is in cell: 8 , -3
+Breeze found in cell, pit around
+You can go to cells 
+[[8, -2], [8, -4], [7, -3], [9, -3]]
+Agent is in cell: 9 , -3
+Breeze found in cell, pit around
+[9, -2] Agent is in cell: 9 , -2
+You can go to cells 
+[[9, -1], [9, -3], [8, -2]]
+[7, 5] Agent is in cell: 7 , 5
+Breeze found in cell, pit around
+You can go to cells 
+[[7, 6], [7, 4], [6, 5], [8, 5]]
+Agent is in cell: 8 , 5
+Breeze found in cell, pit around
+[8, 4] Agent is in cell: 8 , 4
+Breeze found in cell, pit around
+You can go to cells 
+[[8, 5], [8, 3], [7, 4], [9, 4]]
+Agent is in cell: 9 , 4
+You fell into a pit
+Breeze found in cell, pit around
+[9, 3] Agent is in cell: 9 , 3
+Breeze found in cell, pit around
+You can go to cells 
+[[9, 4], [9, 2], [8, 3]]
+[8, -4] Agent is in cell: 8 , -4
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[8, -3], [8, -5], [7, -4], [9, -4]]
+Agent is in cell: 9 , -4
+You fell into a pit
+Breeze found in cell, pit around
+[9, -3] Agent is in cell: 9 , -3
+Breeze found in cell, pit around
+You can go to cells 
+[[9, -2], [9, -4], [8, -3]]
+[8, 5] Agent is in cell: 8 , 5
+Breeze found in cell, pit around
+You can go to cells 
+[[8, 6], [8, 4], [7, 5], [9, 5]]
+Agent is in cell: 9 , 5
+You fell into a pit
+Breeze found in cell, pit around
+[9, 4] Agent is in cell: 9 , 4
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[9, 5], [9, 3], [8, 4]]
+[9, -4] Agent is in cell: 9 , -4
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[9, -3], [9, -5], [8, -4]]
+[9, 5] Agent is in cell: 9 , 5
+You fell into a pit
+Breeze found in cell, pit around
+You can go to cells 
+[[9, 6], [9, 4], [8, 5]]
+
+Process finished with exit code 0
