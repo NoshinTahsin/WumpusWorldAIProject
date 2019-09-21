@@ -16,6 +16,7 @@ class cellState:
     glitter= False;
     safe=False;
     pending="";
+    goldCollected=False;
 
 colDimension = 10
 rowDimension = 10
@@ -216,24 +217,109 @@ def checkStench(r,c):
             board[r+1][c].pending+=" wumpus"
             board[r-1][c].pending+=" wumpus"
 
+def checkWumpus(r,c):
+    if board[r][c].wumpus==True:
+        print("Wumpus Eats You! You lose! Game Over!!!")
+
+def checkPit(r,c):
+    if board[r][c].pit==True:
+        print("You fell into a pit")
+
+def checkBreeze(r,c):
+    if board[r][c].breeze:
+        if r==0 and c==0:
+            board[r][c+1].pending+=" pit"
+            board[r+1][c].pending+=" pit"
+        elif r==0 and c==9:
+            board[r][c-1].pending+=" pit"
+            board[r+1][c].pending+=" pit"
+        elif r==9 and c==0:
+            board[r][c+1].pending+=" pit"
+            board[r-1][c].pending+=" pit"
+        elif r==9 and c==9:
+            board[r-1][c].pending+=" pit"
+            board[r][c-1].pending+=" pit"
+        elif r==0:
+            board[r][c+1].pending+=" pit"
+            board[r][c-1].pending+=" pit"
+            board[r+1][c].pending+=" pit"
+        elif r==9:
+            board[r][c+1].pending+=" pit"
+            board[r][c-1].pending+=" pit"
+            board[r-1][c].pending+=" pit"
+        else:
+            board[r][c+1].pending+=" pit"
+            board[r][c-1].pending+=" pit"
+            board[r+1][c].pending+=" pit"
+            board[r-1][c].pending+=" pit"
+
+def checkGlitter(r,c):
+    if board[r][c].glitter==True:
+        board[r][c].goldCollected=True
+        print("Gold collected! Game won!")
 
 threatInfo=""
 
 def checkThreat(r,c):
     checkStench(r,c)
-    
+    checkWumpus(r,c)
+    checkPit(r,c)
+    checkBreeze(r,c)
+    checkGlitter(r,c)
 
+def getAdjCellList(r,c):
+    listAdj=[]
+    if r==0 and c==0:
+        listAdj.append([r,c+1])
+        listAdj.append([r+1,c])
+        print(listAdj)
 
+    elif r==0 and c==9:
+        listAdj.append([r,c-1])
+        listAdj.append([r+1,c])
+        print(listAdj)
 
+    elif r==9 and c==0:
+        listAdj.append([r,c+1])
+        listAdj.append([r-1,c])
+        print(listAdj)
 
+    elif r==9 and c==9:
+        listAdj.append([r-1,c])
+        listAdj.append([r,c-1])
+        print(listAdj)
 
-            
+    elif r==0:
+        listAdj.append([r,c+1])
+        listAdj.append([r,c-1])
+        listAdj.append([r+1,c])
+        print(listAdj)
 
+    elif r==9:
+        listAdj.append([r,c+1])
+        listAdj.append([r,c-1])
+        listAdj.append([r-1,c])
+        print(listAdj)
 
+    else:
+        listAdj.append([r,c+1])
+        listAdj.append([r,c-1])
+        listAdj.append([r-1,c])
+        listAdj.append([r+1,c])
+        print(listAdj)
+
+    return listAdj
 
 def enterCell(r,c):
     print("Agent is in cell: "+str(r)+" , "+str(c))
     checkThreat(r,c)
+
+    while 1:
+        print("You are in cell "+str(r)+" , "+str(c))
+        print("You can go to cells ")
+        adjacentCellList=getAdjCellList(r,c)
+        print(adjacentCellList)
+
 
 
 def startGame():
