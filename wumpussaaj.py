@@ -19,6 +19,7 @@ class cellState:
     goldCollected=False;
     score=0;
     visited=False;
+    currentPosition=[]
 
 colDimension = 10
 rowDimension = 10
@@ -215,6 +216,14 @@ def checkStench(r,c):
             board[r][c+1].pending+=" wumpus"
             board[r][c-1].pending+=" wumpus"
             board[r-1][c].pending+=" wumpus"
+        elif c==0:
+            board[r-1][c].pending+=" wumpus"
+            board[r][c+1].pending+=" wumpus"
+            board[r+1][c].pending+=" wumpus"
+        elif c==9:
+            board[r-1][c].pending+=" wumpus"
+            board[r+1][c].pending+=" wumpus"
+            board[r][c-1].pending+=" wumpus"
         else:
             board[r][c+1].pending+=" wumpus"
             board[r][c-1].pending+=" wumpus"
@@ -228,7 +237,7 @@ def checkWumpus(r,c):
 
 def checkPit(r,c):
     if board[r][c].pit==True:
-        print("You fell into a pit")
+        print("You fell into a pit. Game over")
         return True
 
 def checkBreeze(r,c):
@@ -254,6 +263,15 @@ def checkBreeze(r,c):
             board[r][c+1].pending+=" pit"
             board[r][c-1].pending+=" pit"
             board[r-1][c].pending+=" pit"
+        elif c==0:
+            board[r-1][c].pending+=" pit"
+            board[r][c+1].pending+=" pit"
+            board[r+1][c].pending+=" pit"
+        elif c==9:
+            board[r-1][c].pending+=" pit"
+            board[r+1][c].pending+=" pit"
+            board[r][c-1].pending+=" pit"
+
         else:
             board[r][c+1].pending+=" pit"
             board[r][c-1].pending+=" pit"
@@ -264,6 +282,7 @@ def checkGlitter(r,c):
     if board[r][c].glitter==True:
         board[r][c].goldCollected=True
         print("Gold collected! Game won!")
+        return True
 
 threatInfo=""
 
@@ -272,10 +291,13 @@ def checkThreat(r,c):
     w=checkWumpus(r,c)
     p=checkPit(r,c)
     checkBreeze(r,c)
-    checkGlitter(r,c)
+    g=checkGlitter(r,c)
 
     if w==False and p==False:
         board[r][c].safe=True
+        return 1
+    if w==True or p==True or g==True:
+        return -1
 
 def getAdjCellList(r,c):
     listAdj=[]
@@ -305,6 +327,18 @@ def getAdjCellList(r,c):
         listAdj.append([r,c-1])
         listAdj.append([r-1,c])
 
+    elif c==0:
+        listAdj.append([r-1,c])
+        listAdj.append([r,c+1])
+        listAdj.append([r+1,c])
+
+    elif c==9:
+        listAdj.append([r-1,c])
+        listAdj.append([r+1,c])
+        listAdj.append([r,c-1])
+
+
+
     else:
         listAdj.append([r,c+1])
         listAdj.append([r,c-1])
@@ -316,8 +350,13 @@ def getAdjCellList(r,c):
 
 def enterCell(r,c):
     print("Agent is in cell: "+str(r)+" , "+str(c))
-    checkThreat(r,c)
+    board[r][c].currentPosition=[r,c]
+    print("Printing current position")
+    print(board[r][c].currentPosition)
+    returnThreat=checkThreat(r,c)
     board[r][c].visited=True
+    return returnThreat
+
     #score??
 
 
@@ -363,7 +402,9 @@ def startGame():
             # queue and print it
             s = queue.pop(0)
             print (s, end = " ")
-            enterCell(s[0],s[1])
+            returnFromCell=enterCell(s[0],s[1])
+            if returnFromCell==-1:
+                break
 
             # Get all adjacent vertices of the
             # dequeued vertex s. If a adjacent
@@ -380,7 +421,10 @@ def startGame():
 
                 if board[adjCellR][adjCellC].visited == False:
                     queue.append([adjCellR,adjCellC])
-                    enterCell(adjCellR, adjCellC)
+                    returnFromCell=enterCell(adjCellR, adjCellC)
+
+                    if returnFromCell==-1:
+                        break
 
 
 
