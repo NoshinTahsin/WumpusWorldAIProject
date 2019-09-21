@@ -220,10 +220,12 @@ def checkStench(r,c):
 def checkWumpus(r,c):
     if board[r][c].wumpus==True:
         print("Wumpus Eats You! You lose! Game Over!!!")
+        return True
 
 def checkPit(r,c):
     if board[r][c].pit==True:
         print("You fell into a pit")
+        return True
 
 def checkBreeze(r,c):
     if board[r][c].breeze:
@@ -262,53 +264,50 @@ threatInfo=""
 
 def checkThreat(r,c):
     checkStench(r,c)
-    checkWumpus(r,c)
-    checkPit(r,c)
+    w=checkWumpus(r,c)
+    p=checkPit(r,c)
     checkBreeze(r,c)
     checkGlitter(r,c)
+
+    if w==False and p==False:
+        board[r][c].safe=True
 
 def getAdjCellList(r,c):
     listAdj=[]
     if r==0 and c==0:
         listAdj.append([r,c+1])
         listAdj.append([r+1,c])
-        print(listAdj)
 
     elif r==0 and c==9:
         listAdj.append([r,c-1])
         listAdj.append([r+1,c])
-        print(listAdj)
 
     elif r==9 and c==0:
         listAdj.append([r,c+1])
         listAdj.append([r-1,c])
-        print(listAdj)
 
     elif r==9 and c==9:
         listAdj.append([r-1,c])
         listAdj.append([r,c-1])
-        print(listAdj)
 
     elif r==0:
         listAdj.append([r,c+1])
         listAdj.append([r,c-1])
         listAdj.append([r+1,c])
-        print(listAdj)
 
     elif r==9:
         listAdj.append([r,c+1])
         listAdj.append([r,c-1])
         listAdj.append([r-1,c])
-        print(listAdj)
 
     else:
         listAdj.append([r,c+1])
         listAdj.append([r,c-1])
         listAdj.append([r-1,c])
         listAdj.append([r+1,c])
-        print(listAdj)
 
     return listAdj
+
 
 def enterCell(r,c):
     print("Agent is in cell: "+str(r)+" , "+str(c))
@@ -319,6 +318,18 @@ def enterCell(r,c):
         print("You can go to cells ")
         adjacentCellList=getAdjCellList(r,c)
         print(adjacentCellList)
+
+
+        #jei cell gulay jawa jay jabe bfs maybe
+        #ager cell stack e rakhbe
+        #shb cell er state dekhay dibe
+        #print korabe thought process + set korbe value state
+
+        #scoring bakiiiiiiiiiiiiii
+        #
+
+
+
 
 
 
