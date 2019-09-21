@@ -14,11 +14,16 @@ class cellState:
     pit    = False;
     gold   = False;
     glitter= False;
+    safe=False;
+    pending="";
 
-colDimension = 4
-rowDimension = 4
+colDimension = 10
+rowDimension = 10
 
 board = [[cellState() for j in range(colDimension)] for i in range(rowDimension)]
+
+#branchList={ 0: [1,10], 1: [0,2,11], 3: [1,7,8], 4: [1,9,10], 5:[2,9,11],
+#				6: [2,7,12]}
 
 def boundCheck(r,c):
     if(c>=0 and r>=0 and c<colDimension and r<rowDimension):
@@ -33,7 +38,7 @@ def addStench(r,c):
         board[r][c].stench=True
 
 def addGold(r,c):
-    print("ashchiiii")
+    #print("ashchiiii")
     if(boundCheck(r,c)):
         board[r][c].gold=True
         board[r][c].glitter=True
@@ -98,6 +103,41 @@ def printBoard():
 
 
 
+def printBoardForAgent():
+
+    print("\n Showing board from agent's perspective")
+
+    for r in range (rowDimension):
+        cellInfo=""
+        for c in range (colDimension):
+
+
+            cellInfo+= "\t"+str(r) +", "+ str(c) +" : "
+
+            if(r==0 and c==0):
+                cellInfo+=" agent "
+
+
+            if board[r][c].stench:
+                cellInfo+=" stench"
+
+            if board[r][c].breeze:
+                cellInfo+=" breeze"
+
+            if board[r][c].glitter:
+                cellInfo+=" glitter"
+
+            #else:
+            #cellInfo+="empty"
+
+        print(cellInfo)
+
+
+        print("\n")
+
+
+
+
 def generateDefinedBoard():
     pitList=[[0,2], [0,3], [1,0], [3,0]]
     wumpusList=[3,2]
@@ -131,10 +171,10 @@ def addFeaturesRandomly ( ):
         wumpusR = 0
 
         while wummpusC == 0 and wumpusR == 0:
-            wummpusC = random.randrange(colDimension)
+            wumpusC = random.randrange(colDimension)
             wumpusR = random.randrange(rowDimension)
 
-        addWumpus ( wummpusR, wumpusc );
+        addWumpus ( wumpusR, wumpusC );
 
         # Generate gold
         goldC = 0
@@ -146,6 +186,61 @@ def addFeaturesRandomly ( ):
 
 
         addGold ( goldR, goldC )
+
+
+def checkStench(r,c):
+    if board[r][c].stench:
+        if r==0 and c==0:
+            board[r][c+1].pending+=" wumpus"
+            board[r+1][c].pending+=" wumpus"
+        elif r==0 and c==9:
+            board[r][c-1].pending+=" wumpus"
+            board[r+1][c].pending+=" wumpus"
+        elif r==9 and c==0:
+            board[r][c+1].pending+=" wumpus"
+            board[r-1][c].pending+=" wumpus"
+        elif r==9 and c==9:
+            board[r-1][c].pending+=" wumpus"
+            board[r][c-1].pending+=" wumpus"
+        elif r==0:
+            board[r][c+1].pending+=" wumpus"
+            board[r][c-1].pending+=" wumpus"
+            board[r+1][c].pending+=" wumpus"
+        elif r==9:
+            board[r][c+1].pending+=" wumpus"
+            board[r][c-1].pending+=" wumpus"
+            board[r-1][c].pending+=" wumpus"
+        else:
+            board[r][c+1].pending+=" wumpus"
+            board[r][c-1].pending+=" wumpus"
+            board[r+1][c].pending+=" wumpus"
+            board[r-1][c].pending+=" wumpus"
+
+
+threatInfo=""
+
+def checkThreat(r,c):
+    checkStench(r,c)
+    
+
+
+
+
+
+            
+
+
+
+def enterCell(r,c):
+    print("Agent is in cell: "+str(r)+" , "+str(c))
+    checkThreat(r,c)
+
+
+def startGame():
+    print("Game started")
+
+    enterCell(0,0)
+
 
 
 def main():
@@ -164,15 +259,28 @@ def main():
         print("Showing board for random world")
         print("\n")
         addFeaturesRandomly()
-        printBoard()
 
     if(inp==2):
         generateDefinedBoard()
-        printBoard()
+        print("Showing board for user defined world")
+
+    printBoard()
+    printBoardForAgent()
+
+    startGame()
 
 
 main()
 
+#world generate korlo
+#adjacent gula list of list e dibo--- list korar dorkar nai--bfs chalabo
+#dekhbo kon cell thke koi koi jawa jay
+#safe hoile safe mark korbo
+#breeze/stench paile adjacent 4 ta pending mark korbo, pending er value dibo
+#stack e rakhbo
+#point add korbo
+#koi jabo 3 dik block thkale decide korbo
 
+##threat onnovabe fela jay ki vaba lagbe, unique kisu but random e
 
 
