@@ -17,6 +17,8 @@ class cellState:
     safe=False;
     pending="";
     goldCollected=False;
+    score=0;
+    visited=False;
 
 colDimension = 10
 rowDimension = 10
@@ -191,6 +193,8 @@ def addFeaturesRandomly ( ):
 
 def checkStench(r,c):
     if board[r][c].stench:
+
+        print("Stench found in cell, wumpus around")
         if r==0 and c==0:
             board[r][c+1].pending+=" wumpus"
             board[r+1][c].pending+=" wumpus"
@@ -229,6 +233,7 @@ def checkPit(r,c):
 
 def checkBreeze(r,c):
     if board[r][c].breeze:
+        print("Breeze found in cell, pit around")
         if r==0 and c==0:
             board[r][c+1].pending+=" pit"
             board[r+1][c].pending+=" pit"
@@ -312,12 +317,8 @@ def getAdjCellList(r,c):
 def enterCell(r,c):
     print("Agent is in cell: "+str(r)+" , "+str(c))
     checkThreat(r,c)
-
-    while 1:
-        print("You are in cell "+str(r)+" , "+str(c))
-        print("You can go to cells ")
-        adjacentCellList=getAdjCellList(r,c)
-        print(adjacentCellList)
+    board[r][c].visited=True
+    #score??
 
 
         #jei cell gulay jawa jay jabe bfs maybe
@@ -329,14 +330,59 @@ def enterCell(r,c):
         #
 
 
-
-
-
-
 def startGame():
     print("Game started")
 
-    enterCell(0,0)
+    # Create a queue for BFS
+    queue = []
+
+    # Mark the source node as
+    # visited and enqueue it
+    queue.append([0,0])
+
+
+
+  #  while 1:
+
+   #     print("You can go to cells ")
+    #    adjacentCellList=getAdjCellList(r,c)
+     #   print(adjacentCellList)
+
+      #  for i in adjacentCellList:
+       #     adjCell=i
+        #    adjCellR=adjCell[0]
+         #   adjCellC=adjCell[1]
+          #  queue.append([adjCellR,adjCellC])
+
+           # enterCell(adjCellR, adjCellC)
+
+
+    while queue:
+
+            # Dequeue a vertex from
+            # queue and print it
+            s = queue.pop(0)
+            print (s, end = " ")
+            enterCell(s[0],s[1])
+
+            # Get all adjacent vertices of the
+            # dequeued vertex s. If a adjacent
+            # has not been visited, then mark it
+            # visited and enqueue it
+            adjacentCellList=getAdjCellList(s[0],s[1])
+            print("You can go to cells ")
+            print(adjacentCellList)
+
+            for i in adjacentCellList:
+                adjCell=i
+                adjCellR=adjCell[0]
+                adjCellC=adjCell[1]
+
+                if board[adjCellR][adjCellC].visited == False:
+                    queue.append([adjCellR,adjCellC])
+                    enterCell(adjCellR, adjCellC)
+
+
 
 
 
