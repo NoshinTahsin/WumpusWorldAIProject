@@ -164,7 +164,16 @@ def main():
 
 
         #onekgula same highest score thakle?
-            #
-            #
+            #pop korte korte 0,0 te, ashar pothe jodi
+                # current position target position er sathe match kore tahole oitai current position, oikahn thke abar stage 1 loop
+            #nearest tay jabo age jetar row col kom
+                #ekta func set of cell thke nearest ta ber kore sorted set return korbe
+                #sorted gulay ekta ekta kore jabo ar set thke shorabo
+                #tokhon oikhan thke dekha lagbe j target position er (row kotocolumn koto)
+                #row 4 hoile row=0 er sathe 4 plus kore 4 ghor agano lagbe for loop
+                #column 3 hoile col=0 er sathe 3 ghor jog kore agano lagbe
+                #oi ghore shesh mesh giye pouchailam
+                #stage 1 loop
+
 
     #
