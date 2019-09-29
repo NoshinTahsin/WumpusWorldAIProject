@@ -405,6 +405,8 @@ def checkThreat(r,c):
 
 def enterCell(cell):
 
+    print("CELLLLLL")
+    print(cell)
     r=cell[0]
     c=cell[1]
     print("Agent is in cell: "+str(r)+" , "+str(c))
@@ -481,10 +483,14 @@ def popFuncForOne(cell):
 
 
 def sortList(cell,highestList): #nearestcell dey sort kore near---far
-    for elements in highestList:
-        
+    return highestList
+
+
 
 def loop(cell):
+
+    print("492")
+    print(cell)
 
     stack.append(cell)
     retEnterCell=enterCell(cell)
@@ -492,7 +498,10 @@ def loop(cell):
     if(retEnterCell==-1):
         print("game over")
 
+    print("498")
+    print(cell)
     returnedListAdj=getAdjCellList(cell)
+
 
     print("49555")
     print(returnedListAdj)
