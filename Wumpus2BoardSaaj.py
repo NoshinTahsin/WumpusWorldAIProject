@@ -3,6 +3,11 @@ import os
 import math
 import random
 
+
+# Create a stack for tracking path
+stack = []
+fringe=[]
+
 # Tile Structure
 class WorldCellState:
     breeze = False;
@@ -28,11 +33,100 @@ class AgentCellState:
     score=0;
     agentCurrentPosition=[]
 
-colDimension = 10
-rowDimension = 10
+colDimension = 4
+rowDimension = 4
 
 board = [[WorldCellState() for j in range(colDimension)] for i in range(rowDimension)]
+
 agentBoard = [[AgentCellState() for j in range(colDimension)] for i in range(rowDimension)]
+
+
+
+def printBoard():
+
+    for r in range (rowDimension):
+        cellInfo=""
+        for c in range (colDimension):
+            cellInfo+= "\t"+str(r) +", "+ str(c) +" : "
+
+            if(r==0 and c==0):
+                cellInfo+=" agent "
+
+            if board[r][c].stench:
+                cellInfo+=" stench"
+
+            if board[r][c].wumpus:
+                cellInfo+=" wumpus"
+
+            if board[r][c].pit:
+                cellInfo+=" pit"
+
+            if board[r][c].breeze:
+                cellInfo+=" breeze"
+
+            if board[r][c].gold:
+                cellInfo+=" gold"
+
+            if board[r][c].glitter:
+                cellInfo+=" glitter"
+
+            #else:
+            #cellInfo+="empty"
+
+        print(cellInfo)
+
+        print("\n")
+
+def getAdjCellList(cell):
+
+    r=cell[0]
+    c=cell[1]
+
+    listAdj=[]
+    if r==0 and c==0:
+        listAdj.append([r,c+1])
+        listAdj.append([r+1,c])
+
+    elif r==0 and c==9:
+        listAdj.append([r,c-1])
+        listAdj.append([r+1,c])
+
+    elif r==9 and c==0:
+        listAdj.append([r,c+1])
+        listAdj.append([r-1,c])
+
+    elif r==9 and c==9:
+        listAdj.append([r-1,c])
+        listAdj.append([r,c-1])
+
+    elif r==0:
+        listAdj.append([r,c+1])
+        listAdj.append([r,c-1])
+        listAdj.append([r+1,c])
+
+    elif r==9:
+        listAdj.append([r,c+1])
+        listAdj.append([r,c-1])
+        listAdj.append([r-1,c])
+
+    elif c==0:
+        listAdj.append([r-1,c])
+        listAdj.append([r,c+1])
+        listAdj.append([r+1,c])
+
+    elif c==9:
+        listAdj.append([r-1,c])
+        listAdj.append([r+1,c])
+        listAdj.append([r,c-1])
+
+    else:
+        listAdj.append([r,c+1])
+        listAdj.append([r,c-1])
+        listAdj.append([r-1,c])
+        listAdj.append([r+1,c])
+
+    return listAdj
+
 
 
 def boundCheck(r,c):
@@ -117,6 +211,307 @@ def addFeaturesRandomly ( ):
         addGold ( goldR, goldC )
 
 
+def checkStench(r,c):
+    if board[r][c].stench:
+
+        print("Stench found in cell, wumpus around")
+        if r==0 and c==0:
+            agentBoard[r][c+1].mayWumpus=True
+            agentBoard[r+1][c].mayWumpus=True
+            agentBoard[r][c+1].score-=3
+            agentBoard[r+1][c].score-=3
+
+        elif r==0 and c==9:
+            agentBoard[r][c-1].mayWumpus=True
+            agentBoard[r+1][c].mayWumpus=True
+            agentBoard[r][c-1].score-=3
+            agentBoard[r+1][c].score-=3
+
+        elif r==9 and c==0:
+            agentBoard[r][c+1].mayWumpus=True
+            agentBoard[r-1][c].mayWumpus=True
+            agentBoard[r][c+1].score-=3
+            agentBoard[r-1][c].score-=3
+
+        elif r==9 and c==9:
+            agentBoard[r-1][c].mayWumpus=True
+            agentBoard[r][c-1].mayWumpus=True
+            agentBoard[r-1][c].score-=3
+            agentBoard[r][c-1].score-=3
+
+        elif r==0:
+
+            agentBoard[r][c+1].mayWumpus=True
+            agentBoard[r][c-1].mayWumpus=True
+            agentBoard[r+1][c].mayWumpus=True
+
+            agentBoard[r][c+1].score-=3
+            agentBoard[r][c-1].score-=3
+            agentBoard[r+1][c].score-=3
+
+        elif r==9:
+
+            agentBoard[r][c+1].mayWumpus=True
+            agentBoard[r][c-1].mayWumpus=True
+            agentBoard[r-1][c].mayWumpus=True
+
+            agentBoard[r][c+1].score-=3
+            agentBoard[r][c-1].score-=3
+            agentBoard[r-1][c].score-=3
+
+        elif c==0:
+
+            agentBoard[r-1][c].mayWumpus=True
+            agentBoard[r][c+1].mayWumpus=True
+            agentBoard[r+1][c].mayWumpus=True
+
+            agentBoard[r-1][c].score-=3
+            agentBoard[r][c+1].score-=3
+            agentBoard[r+1][c].score-=3
+
+
+        elif c==9:
+            agentBoard[r-1][c].mayWumpus=True
+            agentBoard[r+1][c].mayWumpus=True
+            agentBoard[r][c-1].mayWumpus=True
+
+            agentBoard[r-1][c].score-=3
+            agentBoard[r+1][c].score-=3
+            agentBoard[r][c-1].score-=3
+
+        else:
+
+            agentBoard[r][c+1].mayWumpus=True
+            agentBoard[r][c-1].mayWumpus=True
+            agentBoard[r+1][c].mayWumpus=True
+            agentBoard[r-1][c].mayWumpus=True
+
+            agentBoard[r][c+1].score-=3
+            agentBoard[r][c-1].score-=3
+            agentBoard[r+1][c].score-=3
+            agentBoard[r-1][c].score-=3
+
+def checkWumpus(r,c):
+    if board[r][c].wumpus==True:
+        print("Wumpus Eats You! You lose! Game Over!!!")
+        return True
+
+def checkPit(r,c):
+    if board[r][c].pit==True:
+        print("You fell into a pit. Game over")
+        return True
+
+def checkBreeze(r,c):
+    if board[r][c].breeze:
+        print("Breeze found in cell, pit around")
+        if r==0 and c==0:
+            agentBoard[r][c+1].mayPit=True
+            agentBoard[r+1][c].mayPit=True
+            agentBoard[r][c+1].score-=3
+            agentBoard[r+1][c].score-=3
+
+        elif r==0 and c==9:
+            agentBoard[r][c-1].mayPit=True
+            agentBoard[r+1][c].mayPit=True
+            agentBoard[r][c-1].score-=3
+            agentBoard[r+1][c].score-=3
+
+        elif r==9 and c==0:
+            agentBoard[r][c+1].mayPit=True
+            agentBoard[r-1][c].mayPit=True
+            agentBoard[r][c+1].score-=3
+            agentBoard[r-1][c].score-=3
+
+        elif r==9 and c==9:
+            agentBoard[r-1][c].mayPit=True
+            agentBoard[r][c-1].mayPit=True
+            agentBoard[r-1][c].score-=3
+            agentBoard[r][c-1].score-=3
+
+        elif r==0:
+
+            agentBoard[r][c+1].mayPit=True
+            agentBoard[r][c-1].mayPit=True
+            agentBoard[r+1][c].mayPit=True
+
+            agentBoard[r][c+1].score-=3
+            agentBoard[r][c-1].score-=3
+            agentBoard[r+1][c].score-=3
+
+        elif r==9:
+
+            agentBoard[r][c+1].mayPit=True
+            agentBoard[r][c-1].mayPit=True
+            agentBoard[r-1][c].mayPit=True
+
+            agentBoard[r][c+1].score-=3
+            agentBoard[r][c-1].score-=3
+            agentBoard[r-1][c].score-=3
+
+        elif c==0:
+
+            agentBoard[r-1][c].mayPit=True
+            agentBoard[r][c+1].mayPit=True
+            agentBoard[r+1][c].mayPit=True
+
+            agentBoard[r-1][c].score-=3
+            agentBoard[r][c+1].score-=3
+            agentBoard[r+1][c].score-=3
+
+
+        elif c==9:
+            agentBoard[r-1][c].mayPit=True
+            agentBoard[r+1][c].mayPit=True
+            agentBoard[r][c-1].mayPit=True
+
+            agentBoard[r-1][c].score-=3
+            agentBoard[r+1][c].score-=3
+            agentBoard[r][c-1].score-=3
+
+        else:
+
+            agentBoard[r][c+1].mayPit=True
+            agentBoard[r][c-1].mayPit=True
+            agentBoard[r+1][c].mayPit=True
+            agentBoard[r-1][c].mayPit=True
+
+            agentBoard[r][c+1].score-=3
+            agentBoard[r][c-1].score-=3
+            agentBoard[r+1][c].score-=3
+            agentBoard[r-1][c].score-=3
+
+def checkGlitter(r,c):
+    if board[r][c].glitter==True:
+        board[r][c].goldCollected=True
+        print("Gold collected! Game won!")
+        return True
+
+threatInfo=""
+
+
+def checkThreat(r,c):
+    checkStench(r,c)
+    w=checkWumpus(r,c)
+    p=checkPit(r,c)
+    checkBreeze(r,c)
+    g=checkGlitter(r,c)
+
+    if w==False and p==False:
+        board[r][c].safe=True
+        return 1
+    if w==True or p==True or g==True:
+        return -1
+
+
+def enterCell(cell):
+
+    r=cell[0]
+    c=cell[1]
+    print("Agent is in cell: "+str(r)+" , "+str(c))
+    agentBoard[r][c].currentPosition=[r,c]
+    print("Printing current position")
+    print(agentBoard[r][c].currentPosition)
+    returnThreat=checkThreat(r,c)
+    agentBoard[r][c].visited=True
+    return returnThreat
+
+    #checkThreat
+    #more gele more jabe game shesh
+    #na morle ashepashe moron  ase kina check korbe
+    #tarpor value set korbe struct e
+
+def getMaxCell(fringe):
+
+    highestList=list[]
+    HighestScore=-99999999
+
+    for fr in fringe:
+        r=fr[0]
+        c=fr[1]
+        if agentBoard[r][c].score>HighestScore:
+            HighestScore=agentBoard[r][c]
+
+    #highestscore pailam
+
+    for fr in fringe:
+        r=fr[0]
+        c=fr[1]
+        if agentBoard[r][c].score==HighestScore:
+            highestList.append(agentBoard[r][c])
+
+    #check if shbgular score same
+
+    if len(highestList)==len(fringe):
+        return 11, highestList
+
+    #check if ektai highest
+
+    if len(highestList)==1:
+        return 22, highestList
+
+    #check if koyekta highest but shb na
+
+    if len(highestList)>1 and len(highestList)<len(fringe):
+        return 33, highestList
+
+def loop(cell):
+
+    stack.append(cell)
+    retEnterCell=enterCell(cell)
+
+    if(retEnterCell==-1):
+        print("game over")
+
+    returnedListAdj=getAdjCellList(cell)
+    fringe.append(returnedListAdj)
+
+    #list thke randomly choose kora lagbe ekta
+    #cell return korle stack erakha lagbe
+    #dekhtesi fringe er koi jabo
+
+    returnMax, highestList=getMaxCell(fringe)
+
+    if(returnMax==22): #ektai max
+        #pop kore kore 0 te jabo
+        #0 thke target tay jabo highest tay
+        #popStack()
+
+    if returnMax==11:
+        #shbgula same
+        #jeine asi oikhan thkei loop **
+        loop(highestList[0])
+
+    if returnMax==33:
+        #koyekta same koyekta highest
+        
+
+
+
+def startGame():
+    print("Game started")
+
+    # Mark the source node as
+    # visited and keep it in stack
+    stack.append([0,0])
+    stackCell=[0,0]
+
+    retEnterCell=enterCell(stackCell)
+
+    if(retEnterCell==-1):
+        print("game over")
+
+    loop()
+
+
+
+
+
+
+
+
+
+
+
 
 def main():
 
@@ -139,10 +534,16 @@ def main():
         generateDefinedBoard()
         print("Showing board for user defined world")
 
-
     #printBoard
     #initiate board for agent
     #score=0, visited=false, agentSafe=false, mayPit=false, mayWumpus=false
+
+    printBoard()
+    startGame()
+
+main()
+
+
     #startgame 0,0
     #0,0 visited true agentsafe true
 
